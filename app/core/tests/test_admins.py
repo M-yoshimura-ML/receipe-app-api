@@ -15,7 +15,7 @@ class AdminSiteTests(TestCase):
         self.client = Client()
         self.admin_user = get_user_model().object.create_superuser(
             email='admin@example.com',
-            password='test123',
+            password='testpass123',
         )
         self.client.force_login(self.admin_user)
         self.user = get_user_model().object.create_user(
@@ -30,4 +30,4 @@ class AdminSiteTests(TestCase):
         res = self.client.get(url)
 
         self.assertContains(res, self.user.name)
-        self.assertContains(res, self.user.password)
+        self.assertContains(res, self.user.email)
