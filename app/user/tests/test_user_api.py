@@ -62,4 +62,3 @@ class PublicUserApiTests(TestCase):
       email=payload['email']
     ).exists()
     self.assertFalse(user_exists)
-
