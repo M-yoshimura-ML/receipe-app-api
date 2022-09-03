@@ -4,7 +4,7 @@ View for the user API
 from rest_framework import generics
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.serializers import api_settings
-from serializers import (
+from .serializers import (
     UserSerializer,
     AuthTokenSerializer,
 )
