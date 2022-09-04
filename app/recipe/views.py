@@ -5,7 +5,7 @@ from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
-from app.core.models import Recipe
+from core.models import Recipe
 from . import serializers
 
 
