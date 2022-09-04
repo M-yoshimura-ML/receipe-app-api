@@ -27,7 +27,7 @@ def create_recipe(user, **params):
     }
     defaults.update(params)
 
-    recipe = Recipe.object.create(user=user, **defaults)
+    recipe = Recipe.objects.create(user=user, **defaults)
     return recipe
 
 
@@ -62,7 +62,7 @@ class PrivateRecipeAPITests(TestCase):
 
         res = self.client.get(RECIPES_URL)
 
-        recipes = Recipe.object.all().order_by('-id')
+        recipes = Recipe.objects.all().order_by('-id')
         serializer = RecipeSerializer(recipes, many=True)
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertEqual(res.data, serializer.data)
@@ -78,7 +78,7 @@ class PrivateRecipeAPITests(TestCase):
 
         res = self.client.get(RECIPES_URL)
 
-        recipes = Recipe.object.filter(user=self.user)
+        recipes = Recipe.objects.filter(user=self.user)
         serializer = RecipeSerializer(recipes, many=True)
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertEqual(res.data, serializer.data)
