@@ -15,13 +15,14 @@ from ..serializers import TagSerializer
 
 TAG_URL = reverse('recipe:tag-list')
 
+
 def create_user(email='user@example.com', password='testpass123'):
     """Create and return a user."""
     return get_user_model().object.create_user(email=email, password=password)
 
 
 class PublicTagsAPIsTest(TestCase):
-    """Test enauthenticated API requests."""
+    """Test unauthenticated API requests."""
 
     def setUp(self):
         self.client = APIClient()
